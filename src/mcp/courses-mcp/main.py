@@ -23,7 +23,7 @@ mcp = FastMCP("IT Courses", port=8011)
 
 # Tools
 @mcp.tool()
-def search_courses(category: Optional[str] = None, level: Optional[str] = None) -> Dict[str, Any]:
+def search_courses(category: Optional[str] = None, level: Optional[str] = None, role: Optional[str] = None) -> Dict[str, Any]:
     """Search for IT training courses with optional filters
     
     Args:
@@ -38,11 +38,22 @@ def search_courses(category: Optional[str] = None, level: Optional[str] = None) 
                   - database (SQL, NoSQL)
                   You can search multiple categories by separating with commas (e.g., "programming,web")
         level: Difficulty level - "beginner", "intermediate", or "advanced"
+        role: Target job role to filter by. Available roles from HR system:
+              - Senior Developer
+              - Project Manager
+              - Data Analyst
+              - Security Engineer
+              - UI/UX Designer
+              - Cloud Architect
+              - ML Engineer
+              - Business Analyst
+              - DevOps Engineer
+              - Technical Writer
         
     Returns:
         CoursesList object as dictionary with matching courses
     """
-    return search_courses_data(category, level)
+    return search_courses_data(category, level, role)
 
 @mcp.tool()
 def get_course_details(course_id: str) -> Dict[str, Any]:
@@ -58,17 +69,18 @@ def get_course_details(course_id: str) -> Dict[str, Any]:
     return get_course_details_data(course_id)
 
 @mcp.tool()
-def search_and_format_courses(category: Optional[str] = None, level: Optional[str] = None) -> str:
+def search_and_format_courses(category: Optional[str] = None, level: Optional[str] = None, role: Optional[str] = None) -> str:
     """Search for courses and return formatted results for easy reading
     
     Args:
         category: Course category to filter by (see search_courses for full list)
         level: Difficulty level - "beginner", "intermediate", or "advanced"
+        role: Target job role to filter by (see search_courses for full list)
         
     Returns:
         Formatted string with course search results
     """
-    courses_data = search_courses_data(category, level)
+    courses_data = search_courses_data(category, level, role)
     return format_courses_list(courses_data)
 
 @mcp.tool()
@@ -91,6 +103,56 @@ def get_course_categories() -> Dict[str, Any]:
             "mobile": "Mobile app development",
             "database": "Database design and management"
         }
+    }
+
+@mcp.tool()
+def get_courses_for_role(role: str) -> Dict[str, Any]:
+    """Get recommended courses for a specific job role from the HR system
+    
+    Args:
+        role: Target job role. Available roles:
+              - Senior Developer
+              - Project Manager
+              - Data Analyst
+              - Security Engineer
+              - UI/UX Designer
+              - Cloud Architect
+              - ML Engineer
+              - Business Analyst
+              - DevOps Engineer
+              - Technical Writer
+    
+    Returns:
+        Dictionary with courses organized by level for the specified role
+    """
+    # Search for all courses matching this role
+    all_courses = search_courses_data(role=role)
+    
+    # Organize by level
+    beginner_courses = []
+    intermediate_courses = []
+    advanced_courses = []
+    
+    for course in all_courses.get("courses", []):
+        level = course.get("level", "").lower()
+        if level == "beginner":
+            beginner_courses.append(course)
+        elif level == "intermediate":
+            intermediate_courses.append(course)
+        elif level == "advanced":
+            advanced_courses.append(course)
+    
+    return {
+        "role": role,
+        "total_courses": all_courses.get("total_count", 0),
+        "courses_by_level": {
+            "beginner": beginner_courses,
+            "intermediate": intermediate_courses,
+            "advanced": advanced_courses
+        },
+        "recommended_path": f"Start with beginner courses ({len(beginner_courses)}), "
+                           f"then intermediate ({len(intermediate_courses)}), "
+                           f"and finally advanced ({len(advanced_courses)}) courses."
     }
 
 # Resources
@@ -137,6 +199,12 @@ def get_course_resource(course_id: str) -> str:
         formatted += f"Skills Covered:\n"
         for skill in course['skills_covered']:
             formatted += f"  • {skill}\n"
+        formatted += "\n"
+    
+    if course.get('role'):
+        formatted += f"Target Roles:\n"
+        for role in course['role']:
+            formatted += f"  • {role}\n"
         formatted += "\n"
     
     if course_data.get('syllabus'):
