@@ -18,8 +18,8 @@ from courses_service import (
     get_course_summary_prompt
 )
 
-# Create an MCP server on port 8010 to avoid conflicts
-mcp = FastMCP("IT Courses", port=8010)
+# Create an MCP server on port 8011 to avoid conflicts
+mcp = FastMCP("IT Courses", port=8011)
 
 # Tools
 @mcp.tool()
