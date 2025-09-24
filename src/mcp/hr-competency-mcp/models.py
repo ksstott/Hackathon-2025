@@ -5,6 +5,23 @@ HR competency data models - Data classes for hr competency objects.
 from dataclasses import dataclass
 from typing import List
 
+"""
+categories are:
+"programming"
+"cloud"
+"devops"
+"data"
+"security"
+"web"
+"mobile"
+"database"
+"""
+
+"""
+levels are:
+"beginner", "intermediate", or "advanced"
+"""
+
 @dataclass
 class Competency:
     id: int
