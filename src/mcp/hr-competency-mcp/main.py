@@ -2,7 +2,7 @@ from mcp.server.fastmcp import FastMCP
 
 # Create an MCP server
 # you can add the port here so that it doesnt clash with other mcp servers
-mcp = FastMCP("hr-competency-mcp")
+mcp = FastMCP("hr-competency-mcp", port=8010)
 
 # Add an addition tool
 @mcp.tool()
@@ -21,4 +21,4 @@ def main():
     mcp.run("streamable-http")
 
 if __name__ == "__main__":
-   main()
+    main()
