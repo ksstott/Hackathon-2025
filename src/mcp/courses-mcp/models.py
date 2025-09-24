@@ -19,6 +19,7 @@ class Course:
     instructor: Optional[str] = None
     price: Optional[float] = None
     max_students: Optional[int] = None
+    places_booked: Optional[int] = None
     prerequisites: Optional[List[str]] = None
     skills_covered: Optional[List[str]] = None
     role: Optional[List[str]] = None
@@ -40,6 +41,26 @@ class CoursesList:
     category: Optional[str] = None
     total_count: int = 0
     courses: List[Course] = None
+
+
+@dataclass
+class BookingRequest:
+    course_id: str
+    student_name: str
+    email: str
+    phone: Optional[str] = None
+    special_requirements: Optional[str] = None
+
+
+@dataclass
+class BookingResponse:
+    success: bool
+    booking_id: Optional[str] = None
+    course_id: Optional[str] = None
+    student_name: Optional[str] = None
+    message: Optional[str] = None
+    places_booked: Optional[int] = None
+    places_available: Optional[int] = None
 
 
 @dataclass

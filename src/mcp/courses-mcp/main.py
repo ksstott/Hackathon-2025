@@ -15,7 +15,9 @@ from courses_service import (
     get_course_details_data,
     format_courses_list,
     get_available_categories,
-    get_course_summary_prompt
+    get_course_summary_prompt,
+    book_course_data,
+    get_course_availability
 )
 
 # Create an MCP server on port 8011 to avoid conflicts
@@ -155,6 +157,34 @@ def get_courses_for_role(role: str) -> Dict[str, Any]:
                            f"and finally advanced ({len(advanced_courses)}) courses."
     }
 
+@mcp.tool()
+def book_course(course_id: str, student_name: str, email: str, phone: Optional[str] = None, special_requirements: Optional[str] = None) -> Dict[str, Any]:
+    """Book a student into a course and update availability
+    
+    Args:
+        course_id: ID of the course to book (e.g., "prog_001", "cloud_002")
+        student_name: Full name of the student
+        email: Student's email address
+        phone: Optional phone number
+        special_requirements: Optional special requirements or accessibility needs
+    
+    Returns:
+        Dictionary with booking confirmation details, updated places_booked and places_available
+    """
+    return book_course_data(course_id, student_name, email, phone, special_requirements)
+
+@mcp.tool()
+def get_course_availability_info(course_id: str) -> Dict[str, Any]:
+    """Get current availability information for a specific course
+    
+    Args:
+        course_id: ID of the course to check (e.g., "prog_001", "cloud_002")
+    
+    Returns:
+        Dictionary with current booking status, places booked, and places available
+    """
+    return get_course_availability(course_id)
+
 # Resources
 @mcp.resource("courses://category/{category}")
 def get_courses_by_category_resource(category: str) -> str:
@@ -186,7 +216,12 @@ def get_course_resource(course_id: str) -> str:
     formatted += f"Start Date: {course['start_date']}\n"
     formatted += f"Instructor: {course.get('instructor', 'TBD')}\n"
     formatted += f"Price: ${course.get('price', 0):.2f}\n"
-    formatted += f"Max Students: {course.get('max_students', 'Unlimited')}\n\n"
+    max_students = course.get('max_students', 0)
+    places_booked = course.get('places_booked', 0)
+    available_places = max_students - places_booked if max_students and places_booked is not None else max_students
+    formatted += f"Max Students: {max_students}\n"
+    formatted += f"Places Booked: {places_booked}\n"
+    formatted += f"Available Places: {available_places}\n\n"
     formatted += f"Description:\n{course['description']}\n\n"
     
     if course.get('prerequisites'):
@@ -219,10 +254,13 @@ def get_course_resource(course_id: str) -> str:
             formatted += f"  • {outcome}\n"
         formatted += "\n"
     
+    booking_info = course_data.get('booking_info', {})
     formatted += f"📊 Course Stats:\n"
     formatted += f"  • Enrolled Students: {course_data.get('enrollment_count', 0)}\n"
     formatted += f"  • Rating: {course_data.get('rating', 0)}/5.0 ({course_data.get('reviews_count', 0)} reviews)\n"
     formatted += f"  • Certification: {course_data.get('certification', 'Certificate of Completion')}\n"
+    formatted += f"  • Booking Status: {booking_info.get('booking_status', 'Unknown')}\n"
+    formatted += f"  • Places Booked: {booking_info.get('places_booked', 0)}/{booking_info.get('max_students', 'Unknown')}\n"
     
     return formatted
 
