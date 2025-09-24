@@ -21,6 +21,7 @@ class Course:
     max_students: Optional[int] = None
     prerequisites: Optional[List[str]] = None
     skills_covered: Optional[List[str]] = None
+    role: Optional[List[str]] = None
 
 
 @dataclass
@@ -45,6 +46,7 @@ class CoursesList:
 class SearchFilters:
     category: Optional[str] = None
     level: Optional[str] = None
+    role: Optional[str] = None
     duration_max: Optional[str] = None
     start_date_from: Optional[str] = None
     start_date_to: Optional[str] = None

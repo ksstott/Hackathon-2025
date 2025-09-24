@@ -23,7 +23,8 @@ MOCK_COURSES = [
         price=299.99,
         max_students=30,
         prerequisites=[],
-        skills_covered=["Python basics", "Data structures", "File handling", "APIs", "Testing"]
+        skills_covered=["Python basics", "Data structures", "File handling", "APIs", "Testing"],
+        role=["Senior Developer", "Data Analyst", "ML Engineer"]
     ),
     Course(
         id="prog_002",
@@ -37,7 +38,8 @@ MOCK_COURSES = [
         price=399.99,
         max_students=25,
         prerequisites=["Basic JavaScript knowledge"],
-        skills_covered=["ES6+", "TypeScript", "Async programming", "Design patterns"]
+        skills_covered=["ES6+", "TypeScript", "Async programming", "Design patterns"],
+        role=["Senior Developer", "UI/UX Designer"]
     ),
     Course(
         id="prog_003",
@@ -51,7 +53,8 @@ MOCK_COURSES = [
         price=549.99,
         max_students=20,
         prerequisites=["Java fundamentals", "REST APIs"],
-        skills_covered=["Spring Boot", "Microservices", "Docker", "REST APIs", "Testing"]
+        skills_covered=["Spring Boot", "Microservices", "Docker", "REST APIs", "Testing"],
+        role=["Senior Developer", "Cloud Architect"]
     ),
     
     # Cloud courses
@@ -67,7 +70,8 @@ MOCK_COURSES = [
         price=599.99,
         max_students=35,
         prerequisites=["Basic cloud concepts"],
-        skills_covered=["EC2", "S3", "VPC", "Lambda", "RDS", "IAM"]
+        skills_covered=["EC2", "S3", "VPC", "Lambda", "RDS", "IAM"],
+        role=["Cloud Architect", "DevOps Engineer"]
     ),
     Course(
         id="cloud_002",
@@ -81,7 +85,8 @@ MOCK_COURSES = [
         price=349.99,
         max_students=40,
         prerequisites=[],
-        skills_covered=["Azure services", "Cloud concepts", "Security", "Compliance"]
+        skills_covered=["Azure services", "Cloud concepts", "Security", "Compliance"],
+        role=["Cloud Architect", "Senior Developer"]
     ),
     Course(
         id="cloud_003",
@@ -95,7 +100,8 @@ MOCK_COURSES = [
         price=699.99,
         max_students=25,
         prerequisites=["Cloud architecture basics", "Networking fundamentals"],
-        skills_covered=["GCP services", "BigQuery", "Kubernetes Engine", "Cloud Functions"]
+        skills_covered=["GCP services", "BigQuery", "Kubernetes Engine", "Cloud Functions"],
+        role=["Cloud Architect", "DevOps Engineer"]
     ),
     
     # DevOps courses
@@ -111,7 +117,8 @@ MOCK_COURSES = [
         price=449.99,
         max_students=30,
         prerequisites=["Linux basics", "Basic networking"],
-        skills_covered=["Docker", "Kubernetes", "Helm", "CI/CD", "Monitoring"]
+        skills_covered=["Docker", "Kubernetes", "Helm", "CI/CD", "Monitoring"],
+        role=["DevOps Engineer", "Cloud Architect"]
     ),
     Course(
         id="devops_002",
@@ -125,7 +132,8 @@ MOCK_COURSES = [
         price=399.99,
         max_students=25,
         prerequisites=["Git", "Basic scripting"],
-        skills_covered=["Jenkins", "GitLab CI", "Pipeline as Code", "Testing automation"]
+        skills_covered=["Jenkins", "GitLab CI", "Pipeline as Code", "Testing automation"],
+        role=["DevOps Engineer", "Senior Developer"]
     ),
     
     # Data courses
@@ -141,7 +149,8 @@ MOCK_COURSES = [
         price=799.99,
         max_students=30,
         prerequisites=["Python basics", "Basic statistics"],
-        skills_covered=["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Data visualization"]
+        skills_covered=["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Data visualization"],
+        role=["Data Analyst", "ML Engineer"]
     ),
     Course(
         id="data_002",
@@ -155,7 +164,8 @@ MOCK_COURSES = [
         price=899.99,
         max_students=20,
         prerequisites=["ML fundamentals", "Python", "Cloud basics"],
-        skills_covered=["MLOps", "Model deployment", "A/B testing", "Feature engineering"]
+        skills_covered=["MLOps", "Model deployment", "A/B testing", "Feature engineering"],
+        role=["ML Engineer", "Data Analyst"]
     ),
     
     # Security courses
@@ -171,7 +181,8 @@ MOCK_COURSES = [
         price=449.99,
         max_students=35,
         prerequisites=[],
-        skills_covered=["Network security", "Cryptography", "Risk assessment", "Incident response"]
+        skills_covered=["Network security", "Cryptography", "Risk assessment", "Incident response"],
+        role=["Security Engineer"]
     ),
     Course(
         id="sec_002",
@@ -185,7 +196,8 @@ MOCK_COURSES = [
         price=749.99,
         max_students=25,
         prerequisites=["Networking", "Linux", "Basic security concepts"],
-        skills_covered=["Penetration testing", "Vulnerability assessment", "Metasploit", "Web app security"]
+        skills_covered=["Penetration testing", "Vulnerability assessment", "Metasploit", "Web app security"],
+        role=["Security Engineer"]
     ),
     
     # Web development courses
@@ -201,7 +213,8 @@ MOCK_COURSES = [
         price=899.99,
         max_students=30,
         prerequisites=["HTML/CSS", "JavaScript basics"],
-        skills_covered=["React", "Node.js", "Express", "MongoDB", "REST APIs", "Authentication"]
+        skills_covered=["React", "Node.js", "Express", "MongoDB", "REST APIs", "Authentication"],
+        role=["Senior Developer", "UI/UX Designer"]
     ),
     Course(
         id="web_002",
@@ -215,7 +228,8 @@ MOCK_COURSES = [
         price=399.99,
         max_students=25,
         prerequisites=["JavaScript", "HTML/CSS"],
-        skills_covered=["Vue 3", "Vuex", "Vue Router", "Composition API", "Testing"]
+        skills_covered=["Vue 3", "Vuex", "Vue Router", "Composition API", "Testing"],
+        role=["UI/UX Designer", "Senior Developer"]
     ),
     
     # Mobile courses
@@ -231,7 +245,8 @@ MOCK_COURSES = [
         price=599.99,
         max_students=25,
         prerequisites=["Programming basics"],
-        skills_covered=["Swift", "SwiftUI", "UIKit", "Core Data", "App Store deployment"]
+        skills_covered=["Swift", "SwiftUI", "UIKit", "Core Data", "App Store deployment"],
+        role=["Senior Developer", "UI/UX Designer"]
     ),
     Course(
         id="mobile_002",
@@ -245,7 +260,8 @@ MOCK_COURSES = [
         price=499.99,
         max_students=30,
         prerequisites=["React", "JavaScript"],
-        skills_covered=["React Native", "Expo", "Navigation", "Native modules", "Publishing"]
+        skills_covered=["React Native", "Expo", "Navigation", "Native modules", "Publishing"],
+        role=["Senior Developer", "UI/UX Designer"]
     ),
     
     # Database courses
@@ -261,7 +277,8 @@ MOCK_COURSES = [
         price=349.99,
         max_students=35,
         prerequisites=[],
-        skills_covered=["SQL", "Database design", "Normalization", "Indexing", "Transactions"]
+        skills_covered=["SQL", "Database design", "Normalization", "Indexing", "Transactions"],
+        role=["Data Analyst", "Business Analyst", "Senior Developer"]
     ),
     Course(
         id="db_002",
@@ -275,18 +292,20 @@ MOCK_COURSES = [
         price=399.99,
         max_students=30,
         prerequisites=["Basic database concepts"],
-        skills_covered=["MongoDB", "Redis", "Data modeling", "Caching strategies", "Scaling"]
+        skills_covered=["MongoDB", "Redis", "Data modeling", "Caching strategies", "Scaling"],
+        role=["Senior Developer", "Data Analyst"]
     )
 ]
 
 
-def search_courses_data(category: Optional[str] = None, level: Optional[str] = None) -> Dict[str, Any]:
+def search_courses_data(category: Optional[str] = None, level: Optional[str] = None, role: Optional[str] = None) -> Dict[str, Any]:
     """
     Search for IT courses with optional filters.
     
     Args:
         category: Course category to filter by (programming, cloud, devops, data, security, web, mobile, database)
         level: Difficulty level (beginner, intermediate, advanced)
+        role: Target job role to filter by (e.g., "Senior Developer", "Data Analyst")
         
     Returns:
         Dictionary containing CoursesList data
@@ -308,6 +327,17 @@ def search_courses_data(category: Optional[str] = None, level: Optional[str] = N
         filtered_courses = [
             course for course in filtered_courses 
             if course.level and course.level.lower() == level.lower()
+        ]
+    
+    # Filter by role if provided
+    if role:
+        role_lower = role.lower()
+        filtered_courses = [
+            course for course in filtered_courses
+            if course.role and any(
+                role_lower == r.lower() or role_lower in r.lower()
+                for r in course.role
+            )
         ]
     
     # Create CoursesList object
@@ -379,7 +409,8 @@ def course_to_dict(course: Course) -> Dict[str, Any]:
         "price": course.price,
         "max_students": course.max_students,
         "prerequisites": course.prerequisites,
-        "skills_covered": course.skills_covered
+        "skills_covered": course.skills_covered,
+        "role": course.role
     }
 
 
@@ -438,6 +469,8 @@ def format_courses_list(courses_data: Dict[str, Any]) -> str:
         formatted += f"   Start Date: {course['start_date']}\n"
         formatted += f"   Instructor: {course.get('instructor', 'TBD')}\n"
         formatted += f"   Price: ${course.get('price', 0):.2f}\n"
+        if course.get('role'):
+            formatted += f"   Target Roles: {', '.join(course.get('role', []))}\n"
         formatted += f"   Description: {course['description']}\n\n"
     
     return formatted
