@@ -9,6 +9,24 @@ MOCK_EMPLOYEES = [
     "position": "Senior Developer",
     "completed_courses": ["prog_001", "prog_002"]
   },
+    {
+    "id": 1011,
+    "name": "Joe Bloggs",
+    "email": "joe.bloggs@example.com",
+    "phone": "",
+    "department": "Software Engineering",
+    "position": "Principal Developer",
+    "completed_courses": ["prog_003"]
+  },
+    {
+    "id": 1012,
+    "name": "Harry Potter",
+    "email": "harry.potter@example.com",
+    "phone": "",
+    "department": "Software Engineering",
+    "position": "Junior Developer",
+    "completed_courses": ["prog_001"]
+  },
   {
     "id": 102,
     "name": "Bob Smith",

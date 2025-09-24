@@ -24,7 +24,7 @@ MOCK_COURSES = [
         max_students=30,
         prerequisites=[],
         skills_covered=["Python basics", "Data structures", "File handling", "APIs", "Testing"],
-        role=["Senior Developer", "Data Analyst", "ML Engineer"]
+        role=["Developer", "Data Analyst", "ML Engineer"]
     ),
     Course(
         id="prog_002",
@@ -39,7 +39,7 @@ MOCK_COURSES = [
         max_students=25,
         prerequisites=["Basic JavaScript knowledge"],
         skills_covered=["ES6+", "TypeScript", "Async programming", "Design patterns"],
-        role=["Senior Developer", "UI/UX Designer"]
+        role=["Developer", "UI/UX Designer"]
     ),
     Course(
         id="prog_003",
@@ -54,7 +54,7 @@ MOCK_COURSES = [
         max_students=20,
         prerequisites=["Java fundamentals", "REST APIs"],
         skills_covered=["Spring Boot", "Microservices", "Docker", "REST APIs", "Testing"],
-        role=["Senior Developer", "Cloud Architect"]
+        role=["Developer", "Cloud Architect"]
     ),
     
     # Cloud courses
@@ -86,7 +86,7 @@ MOCK_COURSES = [
         max_students=40,
         prerequisites=[],
         skills_covered=["Azure services", "Cloud concepts", "Security", "Compliance"],
-        role=["Cloud Architect", "Senior Developer"]
+        role=["Cloud Architect", "Developer"]
     ),
     Course(
         id="cloud_003",
@@ -133,7 +133,7 @@ MOCK_COURSES = [
         max_students=25,
         prerequisites=["Git", "Basic scripting"],
         skills_covered=["Jenkins", "GitLab CI", "Pipeline as Code", "Testing automation"],
-        role=["DevOps Engineer", "Senior Developer"]
+        role=["DevOps Engineer", "Developer"]
     ),
     
     # Data courses
@@ -149,7 +149,7 @@ MOCK_COURSES = [
         price=799.99,
         max_students=30,
         prerequisites=["Python basics", "Basic statistics"],
-        skills_covered=["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Data visualization"],
+        skills_covered=["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Data visualization", "database"],
         role=["Data Analyst", "ML Engineer"]
     ),
     Course(
@@ -214,7 +214,7 @@ MOCK_COURSES = [
         max_students=30,
         prerequisites=["HTML/CSS", "JavaScript basics"],
         skills_covered=["React", "Node.js", "Express", "MongoDB", "REST APIs", "Authentication"],
-        role=["Senior Developer", "UI/UX Designer"]
+        role=["Developer", "UI/UX Designer"]
     ),
     Course(
         id="web_002",
@@ -229,7 +229,7 @@ MOCK_COURSES = [
         max_students=25,
         prerequisites=["JavaScript", "HTML/CSS"],
         skills_covered=["Vue 3", "Vuex", "Vue Router", "Composition API", "Testing"],
-        role=["UI/UX Designer", "Senior Developer"]
+        role=["UI/UX Designer", "Developer"]
     ),
     
     # Mobile courses
@@ -246,7 +246,7 @@ MOCK_COURSES = [
         max_students=25,
         prerequisites=["Programming basics"],
         skills_covered=["Swift", "SwiftUI", "UIKit", "Core Data", "App Store deployment"],
-        role=["Senior Developer", "UI/UX Designer"]
+        role=["Developer", "UI/UX Designer"]
     ),
     Course(
         id="mobile_002",
@@ -261,7 +261,7 @@ MOCK_COURSES = [
         max_students=30,
         prerequisites=["React", "JavaScript"],
         skills_covered=["React Native", "Expo", "Navigation", "Native modules", "Publishing"],
-        role=["Senior Developer", "UI/UX Designer"]
+        role=["Developer", "UI/UX Designer"]
     ),
     
     # Database courses
@@ -278,7 +278,7 @@ MOCK_COURSES = [
         max_students=35,
         prerequisites=[],
         skills_covered=["SQL", "Database design", "Normalization", "Indexing", "Transactions"],
-        role=["Data Analyst", "Business Analyst", "Senior Developer"]
+        role=["Data Analyst", "Business Analyst", "Developer"]
     ),
     Course(
         id="db_002",
@@ -293,7 +293,7 @@ MOCK_COURSES = [
         max_students=30,
         prerequisites=["Basic database concepts"],
         skills_covered=["MongoDB", "Redis", "Data modeling", "Caching strategies", "Scaling"],
-        role=["Senior Developer", "Data Analyst"]
+        role=["Developer", "Data Analyst"]
     )
 ]
 
@@ -305,7 +305,7 @@ def search_courses_data(category: Optional[str] = None, level: Optional[str] = N
     Args:
         category: Course category to filter by (programming, cloud, devops, data, security, web, mobile, database)
         level: Difficulty level (beginner, intermediate, advanced)
-        role: Target job role to filter by (e.g., "Senior Developer", "Data Analyst")
+        role: Target job role to filter by (e.g., "Developer", "Data Analyst")
         
     Returns:
         Dictionary containing CoursesList data
