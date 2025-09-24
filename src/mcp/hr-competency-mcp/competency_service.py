@@ -7,12 +7,23 @@ from config import MOCK_EMPLOYEES
 
 
 def search_employees_data(
+    id: Optional[int] = None,
+    name: Optional[str] = None,
     department: Optional[str] = None,
     position: Optional[str] = None,
     completed_course_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     """search employees by department, position, and/or completed courses."""
     filtered: List[Dict[str, Any]] = list(MOCK_EMPLOYEES)
+
+    if id:
+        filtered = [e for e in filtered if e.get("id") == id]
+
+    if name:
+        name_l = name.lower()
+        filtered = [
+            e for e in filtered if (e.get("name") or "").lower() == name_l
+        ]
 
     if department:
         dept_l = department.lower()
