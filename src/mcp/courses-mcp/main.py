@@ -38,17 +38,7 @@ def search_courses(category: Optional[str] = None, level: Optional[str] = None, 
                   - database (SQL, NoSQL)
                   You can search multiple categories by separating with commas (e.g., "programming,web")
         level: Difficulty level - "beginner", "intermediate", or "advanced"
-        role: Target job role to filter by. Available roles from HR system:
-              - Senior Developer
-              - Project Manager
-              - Data Analyst
-              - Security Engineer
-              - UI/UX Designer
-              - Cloud Architect
-              - ML Engineer
-              - Business Analyst
-              - DevOps Engineer
-              - Technical Writer
+        role: Target job role to filter by.
         
     Returns:
         CoursesList object as dictionary with matching courses
