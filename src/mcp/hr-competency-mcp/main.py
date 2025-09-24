@@ -20,14 +20,14 @@ mcp = FastMCP("hr-competency-mcp", port=8010)
 def search_employees(
     department: Optional[str] = None,
     position: Optional[str] = None,
-    competency_id: Optional[str] = None,
+    completed_course_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """search employees by department, position, and/or competency id"""
-    return search_employees_data(department, position, competency_id)
+    """search employees by department, position, and/or completed courses"""
+    return search_employees_data(department, position, completed_course_id)
 
-@mcp.resource("employees://search/{department}/{position}/{competency_id}")
-def employees_resource(department: str, position: str, competency_id: str) -> str:
-    data = search_employees_data(department, position, competency_id)
+@mcp.resource("employees://search/{department}/{position}/{completed_course_id}")
+def employees_resource(department: str, position: str, completed_course_id: str) -> str:
+    data = search_employees_data(department, position, completed_course_id)
     formatted = f"found {data.get('total_count', 0)} employee(s)\n\n"
     for e in data["employees"][:50]:
         formatted += f"👤 {e['name']}\n"
@@ -36,7 +36,7 @@ def employees_resource(department: str, position: str, competency_id: str) -> st
         formatted += f"   phone: {e['phone']}\n"
         formatted += f"   department: {e['department']}\n"
         formatted += f"   position: {e['position']}\n"
-        formatted += f"   competencies: {', '.join(e.get('competencies') or [])}\n\n"
+        formatted += f"   completed_courses: {', '.join(e.get('completed_courses') or [])}\n\n"
     return formatted
 
 # no resources are defined; use the tool-only api

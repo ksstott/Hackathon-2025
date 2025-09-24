@@ -13,4 +13,4 @@ class Employee:
     phone: str
     department: str
     position: str
-    competencies: List[str] # ids of the courses attended
+    completed_courses: List[str] # ids of the courses completed

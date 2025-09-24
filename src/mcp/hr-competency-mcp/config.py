@@ -7,7 +7,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0123",
     "department": "Software Engineering",
     "position": "Senior Developer",
-    "competencies": ["prog_001", "prog_002"]
+    "completed_courses": ["prog_001", "prog_002"]
   },
   {
     "id": 102,
@@ -16,7 +16,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0456",
     "department": "Project Management",
     "position": "Project Manager",
-    "competencies": ["prog_003", "prog_004"]
+    "completed_courses": ["prog_003", "prog_004"]
   },
   {
     "id": 103,
@@ -25,7 +25,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0789",
     "department": "Data Science",
     "position": "Data Analyst",
-    "competencies": ["data_001", "data_002"]
+    "completed_courses": ["data_001", "data_002"]
   },
   {
     "id": 104,
@@ -34,7 +34,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0114",
     "department": "IT Security",
     "position": "Security Engineer",
-    "competencies": ["sec_001", "sec_002"]
+    "completed_courses": ["sec_001", "sec_002"]
   },
   {
     "id": 105,
@@ -43,7 +43,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0168",
     "department": "Design",
     "position": "UI/UX Designer",
-    "competencies": ["web_001", "web_002"]
+    "completed_courses": ["web_001", "web_002"]
   },
   {
     "id": 106,
@@ -52,7 +52,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0200",
     "department": "Cloud Engineering",
     "position": "Cloud Architect",
-    "competencies": ["cloud_001", "cloud_002"]
+    "completed_courses": ["cloud_001", "cloud_002"]
   },
   {
     "id": 107,
@@ -61,7 +61,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0255",
     "department": "Data Science",
     "position": "ML Engineer",
-    "competencies": ["data_001", "data_002"]
+    "completed_courses": ["data_001", "data_002"]
   },
   {
     "id": 109,
@@ -70,7 +70,7 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0344",
     "department": "Software Engineering",
     "position": "DevOps Engineer",
-    "competencies": ["devops_001", "devops_002", "web_001"]
+    "completed_courses": ["devops_001", "devops_002", "web_001"]
   },
   {
     "id": 110,
@@ -79,6 +79,6 @@ MOCK_EMPLOYEES = [
     "phone": "+1-202-555-0400",
     "department": "Technical Writing",
     "position": "Technical Writer",
-    "competencies": ["web_001", "web_002"]
+    "completed_courses": ["web_001", "web_002"]
   }
 ]
